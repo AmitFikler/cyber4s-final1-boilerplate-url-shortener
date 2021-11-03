@@ -5,14 +5,16 @@ const shortUrl = require("./routers/shortURL")
 const app = express();
 
 app.use(cors());
+app.use(express.json())
+
 
 app.use("/public", express.static(`./public`));
 
 
 
-app.use("/api/shorturl", shortUrl)
+app.use("/", shortUrl)
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/views/index.html");
+  res.sendFile(__dirname + "/front/dist/index.html");
 });
 
 module.exports = app;
