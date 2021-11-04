@@ -11,9 +11,22 @@
       <h3>url shorter</h3>
       <label for="url-input">insert URL:</label>
       <input type="text" id="url-input" placeholder="Paste a link to start">
-      <button id= "submit">submit</button>
+      <button id="submit">submit</button>
     </div>
-    <div id="output-url"></div>
+    <div id="output-continer">
+      <div id="output-url"></div>
+    </div>
+    <div id="statistic-continer">
+      <label for="statistic-input">code:</label>
+      <input type="text" placeholder="Enter URL Code" id="statistic-input">
+      <button id="statisticBtn">show stast</button>
+    </div>
+    <div id="statistic-output">
+      Creation Date:  <span id="creationDate"></span>
+      Redirect Count:  <span id="redirectCount"></span>
+      Original Url:  <span id="originalUrl"></span>
+      Shorturl Id:  <span id="shorturl-id"></span> 
+    </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </body>
 </html>
