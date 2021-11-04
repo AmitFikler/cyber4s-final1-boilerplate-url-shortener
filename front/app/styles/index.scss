@@ -1,3 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
 body {
-  background: linear-gradient(to right, #ffe259, #ffa751);
+  background: rgb(174,238,234);
+  background: linear-gradient(90deg, rgba(174,238,234,0.409868170901173) 0%, rgba(0,117,255,1) 100%);
+  text-align: center;
+  font-family: 'Bree Serif', serif;
+  color:rgb(0, 0, 0);
 }
+
+#form {
+  border: 4px dotted #649EA4;
+  border-radius: 0px 0px 11px 11px;
+  padding: 18px;
+  width: 50%;
+  margin:auto ;
+}
+
+#submit{
+  background-color: #343A40;
+  border-radius: 4px;  
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 16px;
+  
+}
+
