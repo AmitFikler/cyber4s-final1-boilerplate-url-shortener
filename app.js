@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const shortUrl = require("./routers/shortURL")
 const app = express();
+const errorHandler = require("./middleware/errorHandler")
 
 app.use(cors());
 app.use(express.json())
@@ -14,4 +15,5 @@ app.get("/", (req, res) => {
 });
 
 app.use("/", shortUrl)
+app.use(errorHandler)
 module.exports = app;
