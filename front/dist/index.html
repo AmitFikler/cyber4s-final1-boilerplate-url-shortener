@@ -2,13 +2,13 @@
 
 <html>
   <head>
-    <title>shortylink</title>
+    <title>URL Shortener</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon.png"/> 
+    <link rel="icon" type="image/png" href="favicon.png"/>
   <script defer src="./index.js"></script></head>
 
   <body>
@@ -30,7 +30,10 @@
       <label for="statistic-input">code:</label>
       <input type="text" placeholder="Enter URL Code" id="statistic-input">
       <button id="statisticBtn">show stast</button>
-      <div id="statistic-output"></div>
+      <div id="statistic-output">
+        <i id="trash" class="far fa-trash-alt"></i>
+      </div>
+      
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </body>

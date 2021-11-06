@@ -77,3 +77,6 @@ function alartError(str){
 }
 
 
+document.getElementById("trash").addEventListener("click", ()=>{
+  statisticOutput.style.visibility = "hidden";
+})
