@@ -57,6 +57,9 @@ async function getStatistic(){
     Shorturl Id:  <span id="shorturl-id">${response.data["shorturl-id"]}</span> <br><br>
     `
     statisticOutput.style.visibility = "visible";
+    document.getElementById("trash").addEventListener("click", ()=>{
+      statisticOutput.style.visibility = "hidden";
+    })
   } catch (error) {
     alartError("No such URL was found in the system"); 
   }
@@ -76,8 +79,3 @@ function alartError(str){
       document.getElementById("danger").remove()
   },2000);
 }
-
-
-document.getElementById("trash").addEventListener("click", ()=>{
-  statisticOutput.style.visibility = "hidden";
-})
