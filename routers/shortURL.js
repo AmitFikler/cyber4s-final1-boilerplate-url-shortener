@@ -14,10 +14,10 @@ router.post("/api/shorturl/new", (req,res,next)=>{
         if(!validator.isURL(req.body.longURL)){
                 next({status:400, message: {error: "Invalid URL"}});
         }
-        const urlData = new Database(req.body.longURL, urlCode, `http://localhost:3000/${urlCode}`);
+        const urlData = new Database(req.body.longURL, urlCode, `https://shortyllink.herokuapp.com/${urlCode}`);
         const save = urlData.saveToDB();
         if(save) res.send(save);
-        res.send(`http://localhost:3000/${urlCode}`);
+        res.send(`https://shortyllink.herokuapp.com/${urlCode}`);
 })
 
 router.get("/:code", (req,res,next)=>{
