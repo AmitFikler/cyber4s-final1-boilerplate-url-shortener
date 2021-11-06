@@ -1,7 +1,8 @@
 const fs = require('fs');
+const moment = require("moment")
 
 class Database {
-    constructor(_longUrl,_id,_shortUrl, _date=new Date(Date.now())) {
+    constructor(_longUrl,_id,_shortUrl, _date=moment().format('LLL')) {
         this.longUrl = _longUrl
         this.shortUrl = _shortUrl
         this.id = _id
