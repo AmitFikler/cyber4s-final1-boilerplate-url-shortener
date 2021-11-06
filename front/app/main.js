@@ -50,7 +50,7 @@ async function getStatistic(){
     const response = await axios.get(`https://shortyllink.herokuapp.com/api/statistic/${urlCode}`);
     statisticOutput.innerHTML = 
     `
-    <i id="trash" class="far fa-trash-alt"></i>
+    <i id="trash" class="far fa-trash-alt"></i><br><br>
     Creation Date:  <span id="creationDate">${response.data["creationDate"]}</span> <br><br>
     Redirect Count:  <span id="redirectCount">${response.data["redirectCount"]}</span> <br><br>
     Original Url:  <span id="originalUrl">${response.data["originalUrl"]}</span> <br><br>
