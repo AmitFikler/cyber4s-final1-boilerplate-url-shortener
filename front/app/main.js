@@ -28,7 +28,7 @@ statisticBtn.addEventListener("click",getStatistic);
 
 async function postUrl() {
   try {
-    const response = await axios.post("http://localhost:3000/api/shorturl/new", {
+    const response = await axios.post("/api/shorturl/new", {
       "longURL": inputurl.value
     });
     outputURL.textContent = response.data;
@@ -47,7 +47,7 @@ async function getStatistic(){
     const url = statisticInput.value;
     let urlArr = url.split("/");
     let urlCode = urlArr[urlArr.length - 1];
-    const response = await axios.get(`http://localhost:3000/api/statistic/${urlCode}`);
+    const response = await axios.get(`/api/statistic/${urlCode}`);
     statisticOutput.innerHTML = 
     `
     Creation Date:  <span id="creationDate">${response.data["creationDate"]}</span> <br><br>
