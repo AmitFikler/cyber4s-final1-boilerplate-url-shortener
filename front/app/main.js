@@ -1,28 +1,28 @@
 import "./styles/index.scss";
 
-const submitBtn = document.getElementById("submit")
-const inputurl = document.getElementById("url-input")
-const outputURL = document.getElementById("output-url")
-const statisticInput = document.getElementById("statistic-input")
-const statisticBtn = document.getElementById("statisticBtn")
-const statisticOutput = document.getElementById("statistic-output")
-const outputContiner = document.getElementById("output-continer")
-const copyUrl = document.getElementById("copyUrl")
+const submitBtn = document.getElementById("submit");
+const inputurl = document.getElementById("url-input");
+const outputURL = document.getElementById("output-url");
+const statisticInput = document.getElementById("statistic-input");
+const statisticBtn = document.getElementById("statisticBtn");
+const statisticOutput = document.getElementById("statistic-output");
+const outputContiner = document.getElementById("output-continer");
+const copyUrl = document.getElementById("copyUrl");
 
-
+// copy url
 copyUrl.addEventListener("click", ()=>{
-  copyUrl.textContent = "Copied!"
+  copyUrl.textContent = "Copied!";
   const copyText = outputURL.textContent; // text
   navigator.clipboard.writeText(copyText);
   setTimeout(()=>{
-    copyUrl.innerHTML = "Copy"
+    copyUrl.innerHTML = "Copy";
   },1000)
   
 })
 
 
-submitBtn.addEventListener("click", postUrl)
-statisticBtn.addEventListener("click",getStatistic)
+submitBtn.addEventListener("click", postUrl);
+statisticBtn.addEventListener("click",getStatistic);
 
 
 
@@ -30,25 +30,24 @@ async function postUrl() {
   try {
     const response = await axios.post("http://localhost:3000/api/shorturl/new", {
       "longURL": inputurl.value
-    })
-    
-    outputURL.textContent = response.data
-    outputURL.setAttribute("href", response.data)
-    outputContiner.style.visibility = "visible"
-    inputurl.value = ""
+    });
+    outputURL.textContent = response.data;
+    outputURL.setAttribute("href", response.data);
+    outputContiner.style.visibility = "visible";
+    inputurl.value = "";
   } catch (error) {
-    alartError("Invalid URL") 
-    inputurl.value = ""
+    alartError("Invalid URL"); 
+    inputurl.value = "";
   }
 }
 
 
 async function getStatistic(){
   try {
-    const url = statisticInput.value
-    let urlArr = url.split("/")
-    let urlCode = urlArr[urlArr.length - 1]
-    const response = await axios.get(`http://localhost:3000/api/statistic/${urlCode}`)
+    const url = statisticInput.value;
+    let urlArr = url.split("/");
+    let urlCode = urlArr[urlArr.length - 1];
+    const response = await axios.get(`http://localhost:3000/api/statistic/${urlCode}`);
     statisticOutput.innerHTML = 
     `
     Creation Date:  <span id="creationDate">${response.data["creationDate"]}</span> <br><br>
@@ -56,13 +55,13 @@ async function getStatistic(){
     Original Url:  <span id="originalUrl">${response.data["originalUrl"]}</span> <br><br>
     Shorturl Id:  <span id="shorturl-id">${response.data["shorturl-id"]}</span> <br><br>
     `
-    statisticOutput.style.visibility = "visible"
+    statisticOutput.style.visibility = "visible";
   } catch (error) {
-    alartError("No such URL was found in the system") 
+    alartError("No such URL was found in the system"); 
   }
 }
 
-
+// error handling
 function alartError(str){
   let alart =
   `
@@ -74,7 +73,7 @@ function alartError(str){
   document.body.insertBefore(div, document.querySelector("div"))
   setTimeout(()=>{
       document.getElementById("danger").remove()
-  },2000)
+  },2000);
 }
 
 

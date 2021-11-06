@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 
 class Database {
     constructor(_longUrl,_id,_shortUrl, _date=new Date(Date.now())) {
@@ -9,15 +9,15 @@ class Database {
         this.count = 0
     }
     saveToDB() {
-        let db = JSON.parse(fs.readFileSync('./database/DB.json',"utf8"))
+        let db = JSON.parse(fs.readFileSync('./database/DB.json',"utf8"));
         for (let id in db) {
             if (db[id].longUrl === this.longUrl){
-                return db[id].shortUrl
+                return db[id].shortUrl;
             }
         }
-        db[this.id] = this
-        fs.writeFileSync("./database/DB.json", JSON.stringify(db))
+        db[this.id] = this;
+        fs.writeFileSync("./database/DB.json", JSON.stringify(db));
     }
 }
 
-module.exports  = Database
+module.exports  = Database;
