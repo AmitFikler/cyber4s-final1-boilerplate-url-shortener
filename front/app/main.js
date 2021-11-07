@@ -56,9 +56,11 @@ async function getStatistic(){
     Original Url:  <span id="originalUrl">${response.data["originalUrl"]}</span> <br><br>
     Shorturl Id:  <span id="shorturl-id">${response.data["shorturl-id"]}</span> <br><br>
     `
+    statisticOutput.style.height = null;
     statisticOutput.style.visibility = "visible";
     document.getElementById("trash").addEventListener("click", ()=>{
       statisticOutput.style.visibility = "hidden";
+      statisticOutput.style.height = "30px";
     })
   } catch (error) {
     alartError("No such URL was found in the system"); 
