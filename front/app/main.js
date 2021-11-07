@@ -59,6 +59,7 @@ async function getStatistic(){
     statisticOutput.style.display = "block";
     document.getElementById("trash").addEventListener("click", ()=>{
       statisticOutput.style.display = "none";
+      statisticInput.value = ""
     })
   } catch (error) {
     alartError("No such URL was found in the system"); 
